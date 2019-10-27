@@ -1,5 +1,5 @@
-from point import Point
-from edge import Edge
+from SliceTest.point import Point
+from SliceTest.edge import Edge
 
 
 class Shape(object):

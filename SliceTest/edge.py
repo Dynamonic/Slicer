@@ -1,4 +1,4 @@
-from point import Point
+from SliceTest.point import Point
 
 
 class Edge(object):

@@ -1,6 +1,6 @@
-from readSlice import SliceReader
-from shape import Shape
-from point import Point
+from SliceTest.readSlice import SliceReader
+from SliceTest.shape import Shape
+from SliceTest.point import Point
 
 
 class Toolpath(object):
