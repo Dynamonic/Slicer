@@ -133,3 +133,20 @@ class Shape(object):
             return True
         else:
             return False
+
+
+if __name__ == "__main__":
+    """USED FOR TESTING"""
+    # IN_SHAPE() TESTS
+    data = [Point(0, 0), Point(0, 12), Point(12, 12), Point(12, 0), Point(0, 0)]  # 12x12 box
+    shape1 = Shape(data)
+    point1 = Point(24, 30)
+    point2 = Point(10, 10)
+    if not shape1.in_shape(point1):
+        print("Test 1 passed")
+    else:
+        print("Test 1 failed")
+    if shape1.in_shape(point2):
+        print("Test 2 passed")
+    else:
+        print("Test 2 failed")
