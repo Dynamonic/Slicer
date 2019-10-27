@@ -68,7 +68,7 @@ class Shape(object):
             if self._intersect(edge, Edge(p1, p2)):
                 count1 += 1
             if self._intersect(edge, Edge(p1, p3)):
-                count2 +=1
+                count2 += 1
         if count1 == count2 and count1 % 2 == 1:
             return True
         elif count1 != count2:  # helps prevent errors with counting points between edges
@@ -76,8 +76,13 @@ class Shape(object):
         return False
 
     def _intersect(self, line1, line2):
-        """determines if two lines intersect
-        line: [point1, point2]"""
+        """
+        determines if two lines intersect
+        line: [point1, point2]
+        :param line1: First line
+        :param line2: Second Line
+        :return: True if intersecting, False otherwise
+        """
         # if either line has no length check if the point lies on the other line
         if line1.line_length() == 0:
             return line2.point_on_line(line1.point1)
