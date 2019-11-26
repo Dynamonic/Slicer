@@ -20,6 +20,14 @@ class Line(object):
         self.color = new_color
         return self.color
 
+    def get_xs(self):
+        x_s = [self.start_point.get_x(), self.stop_point.get_x()]
+        return x_s
+
+    def get_ys(self):
+        y_s = [self.start_point.get_y(), self.stop_point.get_y()]
+        return y_s
+
 
 class Point(object):
     def __init__(self, x, y, z=0):
