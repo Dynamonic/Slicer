@@ -44,5 +44,8 @@ class Point(object):
     def get_z(self):
         return self.z
 
+    def points(self):
+        return [self.x, self.y, self.z]
+
     def point_str(self):
         return "%d, %d, %d" % (self.get_x(), self.get_y(), self.get_z())

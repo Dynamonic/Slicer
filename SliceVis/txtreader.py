@@ -1,4 +1,4 @@
-from SliceTest.point import Point
+from SliceVis.vis_geometry import Point
 
 
 class TxtReader(object):
@@ -16,9 +16,11 @@ class TxtReader(object):
         f = open(filename, "r")
         contents = f.readlines()
         for line in contents:
-            if line != "ON" and line != "OFF":
+            line = line.rstrip()
+            if not (line == "ON" or line == "OFF"):
+                print(line)
                 xyz = line.split(",")
-                point = Point(xyz[0], xyz[1], xyz[2])
+                point = Point(xyz[0].rstrip(), xyz[1].rstrip(), xyz[2].rstrip())
                 self.data.append(point)
             else:
                 self.data.append(line)
