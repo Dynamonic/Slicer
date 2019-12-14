@@ -13,10 +13,12 @@ class Visualizer(object):
         self.points = TxtReader(self.toolpath).getData()
         self.lines = self.segment(self.points)
 
-    def run(self):
-        self.display(self.lines)
+    def run(self, type=1):
+        if type == 1:
+            self.display(self.lines)
+        else:
+            self.display_arrows(self.lines)
 
-    # LOOK THROUGH AND FIX LINE GENERATION LOGIC
     def segment(self, points):
         edges = []
         p1 = None
@@ -61,13 +63,33 @@ class Visualizer(object):
         plt.plot()
         plt.show()
 
+    def display_arrows(self, lines):
+        fig = plt.figure()
+        ax = plt.axes()
+        ax.grid(linestyle=':')
+        for line in lines:
+            if line.color == 0:
+                color = 'g'
+            elif line.color == 1:
+                color = 'r'
+            elif line.color == 2:
+                color = 'b'
+            else:
+                color = 'c'
+            start = line.get_start()
+            dist = line.xy_dist()
+            ax.add_line(plt.arrow(start.get_x(), start.get_y(), dist[0], dist[1],
+                                  width=.2, color=color))
+        plt.plot()
+        plt.show()
+
 # BEGIN VISUALIZER TEST
 
 
 def vis_test():
     vis = Visualizer()
     vis.load("vis_test.txt")
-    vis.run()
+    vis.run(0)
 
 if __name__ == "__main__":
     vis_test()

@@ -1,3 +1,5 @@
+import math
+
 
 class Line(object):
     DEFAULT_COLOR = 0
@@ -27,6 +29,16 @@ class Line(object):
     def get_ys(self):
         y_s = [self.start_point.get_y(), self.stop_point.get_y()]
         return y_s
+
+    def xy_dist(self):
+        x = self.get_stop().get_x()-self.get_start().get_x()
+        y = self.get_stop().get_y()-self.get_start().get_y()
+        return [x, y]
+
+    def dist(self):
+        xy = self.xy_dist()
+        dist = math.sqrt(xy[0]**2+xy[1]**2)
+        return dist
 
 
 class Point(object):
