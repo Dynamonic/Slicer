@@ -11,7 +11,7 @@ class Visualizer(object):
     def load(self, toolpath_file):
         self.toolpath = toolpath_file
         self.points = TxtReader(self.toolpath).getData()
-        self.lines = self.segment(self.points)
+        self.lines = self.segment()
 
     def run(self, type=1):
         if type == 1:
@@ -19,7 +19,8 @@ class Visualizer(object):
         else:
             self.display_arrows(self.lines)
 
-    def segment(self, points):
+    def segment(self):
+        points = self.points()
         edges = []
         p1 = None
         p2 = None
@@ -46,7 +47,8 @@ class Visualizer(object):
                     edges.append(edge)
         return edges
 
-    def display(self, lines):
+    @staticmethod
+    def display(lines):
         fig = plt.figure()
         ax = plt.axes()
         ax.grid(linestyle=':')
@@ -63,7 +65,8 @@ class Visualizer(object):
         plt.plot()
         plt.show()
 
-    def display_arrows(self, lines):
+    @staticmethod
+    def display_arrows(lines):
         fig = plt.figure()
         ax = plt.axes()
         ax.grid(linestyle=':')
