@@ -20,7 +20,7 @@ class Visualizer(object):
             self.display_arrows(self.lines)
 
     def segment(self):
-        points = self.points()
+        points = self.points
         edges = []
         p1 = None
         p2 = None
