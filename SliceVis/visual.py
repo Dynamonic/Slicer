@@ -9,6 +9,7 @@ class Visualizer(object):
         self.data = []
 
     def load(self, toolpath_file):
+        """Loads text file for reading"""
         self.toolpath = toolpath_file
         self.points = TxtReader(self.toolpath).getData()
         self.lines = self.segment()
@@ -20,6 +21,7 @@ class Visualizer(object):
             self.display_arrows(self.lines)
 
     def segment(self):
+        """Takes list of points and turns them into a list of connected lines"""
         points = self.points
         edges = []
         p1 = None

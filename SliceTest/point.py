@@ -1,6 +1,6 @@
 
 class Point(object):
-
+    """Class for a 3D point. currently only used for 2D"""
     def __init__(self, x, y, z=0):
         self.x = float(x)
         self.y = float(y)

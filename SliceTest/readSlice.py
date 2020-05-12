@@ -2,7 +2,7 @@ from SliceTest.point import Point
 
 
 class SliceReader(object):
-
+    """Reads in geometry slices and converts it into a list of points"""
     DEFAULT_NAME = "slice.txt"
     data = []
 
@@ -13,6 +13,7 @@ class SliceReader(object):
         return self.data
 
     def __run(self, filename):
+        """Opens and reads file contents line by line"""
         f = open(filename, "r")
         contents = f.readlines()
         for line in contents:

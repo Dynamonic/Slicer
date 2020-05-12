@@ -13,6 +13,7 @@ class TxtReader(object):
         return self.data
 
     def __run(self, filename):
+        """Reads text file"""
         f = open(filename, "r")
         contents = f.readlines()
         for line in contents:

@@ -4,6 +4,7 @@ from SliceTest.point import Point
 
 
 class Toolpath(object):
+    """Toolpath object takes a file name and bead size to make toolpath slices out of slice geometries"""
     DEFAULT_BEAD = 1
     in_data = []
     out_data = []
@@ -16,6 +17,7 @@ class Toolpath(object):
         self.in_data = slice.getData()
 
     def raster(self):
+        """Algorithm that makes tool paths by going back and forth"""
         # Dumb algorithm, works like a print head
         self.out_data.clear()
         shape = Shape(self.in_data)
@@ -55,21 +57,23 @@ class Toolpath(object):
         self.send(self.out_data)
 
     def contour(self):
+        """Algorithm that creates toolpath that spirals inward while staying parallel to closest outside edge"""
         return None
         # ADD CODE
 
     def hybrid(self):
+        """Algorithm that creates outer edges with contour and then rasters inside"""
         return None
         # ADD CODE
 
     def send(self, out_data, out_file=DEFAULT_OUT):
+        """Writes the toolpath to a text file"""
         f = open(out_file, "w")
         for point in out_data:
             if type(point) is str:
                 f.write(point + "\n")
             else:
                 f.write(point.point_str() + "\n")
-        # FIX THIS TO GET X,Y,Z VALS INSTEAD OF OBJECT POINTERS
         f.close()
 
 

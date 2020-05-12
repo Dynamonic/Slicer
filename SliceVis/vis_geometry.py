@@ -31,11 +31,13 @@ class Line(object):
         return y_s
 
     def xy_dist(self):
+        """Returns x and y dist as separate entities in list"""
         x = self.get_stop().get_x()-self.get_start().get_x()
         y = self.get_stop().get_y()-self.get_start().get_y()
         return [x, y]
 
     def dist(self):
+        """Returns line distance"""
         xy = self.xy_dist()
         dist = math.sqrt(xy[0]**2+xy[1]**2)
         return dist
