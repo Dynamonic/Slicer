@@ -12,7 +12,7 @@ How to use:
 Used for visualizing the toolpaths that come out of the Slice Test  
 How to use:  
 1. Have matplotlib installed (dependancy)  
-2. Create a visualizer object  
+2. Create a visualizer object (for this example we use Visualizer = Visualizer())  
 3. Load the .txt toolpath file with Visualizer.load("FILENAMEHERE.txt")  
 4. To visualize with lines run Visualizer.run() / To visualize with arrows run Visualizer.run(0)  
 
